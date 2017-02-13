@@ -26,7 +26,7 @@
 	</adminpages>
 
 	<pages>
-		<page url="partners/" name="partners" menus="top">Partners</page>
+		<page url="partners/" name="partners" menus="main">Partners</page>
 	</pages>
 
 	<fields_groups>
