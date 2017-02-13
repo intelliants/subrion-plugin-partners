@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module type="plugin" name="partners">
+	<title>Partners</title>
+	<summary>Easy way to create and handle partners</summary>
+	<author>Intelliants LLC</author>
+	<contributor>Intelliants LLC</contributor>
+	<version>1.0.0</version>
+	<date>2017-02-14</date>
+	<compatibility>4.1</compatibility>
+
+	<screenshots>
+		<screenshot type="preview" name="preview.jpg">View Listing page</screenshot>
+	</screenshots>
+
+	<items>
+		<item>partners</item>
+	</items>
+
+	<actions>
+		<action name="partners" url="partners/partners/" icon="list" pages="partners:add,partners:edit"><![CDATA[]]></action>
+		<action name="add_partner" url="partners/partners/add/" icon="plus" pages="partners:read,partners:edit"><![CDATA[]]></action>
+	</actions>
+
+	<adminpages>
+		<page group="content" name="partners" url="partners/partners/" menus="menu">Partners</page>
+	</adminpages>
+
+	<pages>
+		<page url="partners/" name="partners" menus="top">Partners</page>
+	</pages>
+
+	<fields_groups>
+		<group item="partners" name="general" title="General"><![CDATA[]]></group>
+	</fields_groups>
+
+	<fields>
+		<field name="title" item="partners" type="text" group="general" length="70" required="1" multilingual="1" adminonly="1">Title</field>
+		<field name="description" item="partners" type="textarea" group="general" editor="1" required="1" multilingual="1" adminonly="1">Description</field>
+	</fields>
+
+	<phrases>
+		<phrase category="admin" key="add_partner">Add Partner</phrase>
+
+		<phrase category="common" key="partners">Partners</phrase>
+	</phrases>
+
+	<hooks>
+		<hook name="phpCoreBeforePageDisplay" filename="hook.blocks-load" page_type="front"><![CDATA[]]></hook>
+	</hooks>
+
+	<install>
+		<sql>
+			<![CDATA[
+CREATE TABLE IF NOT EXISTS `{prefix}partners`(
+	`id` int(8) unsigned NOT NULL auto_increment,
+	`date_added` date,
+	`date_modified` date,
+	`status` enum('active', 'inactive') NOT NULL default 'inactive',
+	`order` mediumint(8) NOT NULL default 0,
+	`views_num` mediumint(8) unsigned NOT NULL default 0,
+	`featured` tinyint(1) unsigned NOT NULL default 0,
+	`featured_start` datetime NULL,
+	`featured_end` datetime NULL,
+	PRIMARY KEY (`id`),
+	KEY `STATUS` (`status`),
+	KEY `ORDER` (`order`)
+) {mysql_version};
+			]]>
+		</sql>
+	</install>
+
+	<uninstall>
+		<sql>
+			<![CDATA[
+DROP TABLE IF EXISTS `{prefix}partners`;
+			]]>
+		</sql>
+	</uninstall>
+</module>
