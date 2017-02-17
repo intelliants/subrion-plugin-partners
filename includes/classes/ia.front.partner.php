@@ -24,7 +24,7 @@
  *
  ******************************************************************************/
 
-class iaPartner extends abstractModuleAdmin
+class iaPartner extends abstractModuleFront
 {
 	protected static $_table = 'partners';
 
