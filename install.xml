@@ -4,7 +4,7 @@
 	<summary>Easy way to create and handle partners</summary>
 	<author>Intelliants LLC</author>
 	<contributor>Intelliants LLC</contributor>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<date>2017-02-14</date>
 	<compatibility>4.1.0</compatibility>
 
@@ -36,13 +36,19 @@
 	<fields>
 		<field name="title" item="partners" type="text" group="general" length="70" required="1" multilingual="1" adminonly="1">Title</field>
 		<field name="description" item="partners" type="textarea" group="general" editor="1" required="1" multilingual="1" adminonly="1">Description</field>
+		<field name="pictures" item="partners" type="pictures" group="general" length="5" thumb_width="400" thumb_height="300" width="1200" height="900" prefix="partners_" editable="0">Pictures</field>
 	</fields>
 
 	<phrases>
 		<phrase category="admin" key="add_partner">Add Partner</phrase>
 
 		<phrase category="common" key="partners">Partners</phrase>
+		<phrase category="common" key="no_partners">No partners.</phrase>
 	</phrases>
+
+	<blocks>
+		<block title="Partners" name="partners" collapsible="1" position="bottom" type="smarty" filename="block.partners"><![CDATA[]]></block>
+	</blocks>
 
 	<hooks>
 		<hook name="phpCoreBeforePageDisplay" filename="hook.blocks-load" page_type="front"><![CDATA[]]></hook>
