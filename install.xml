@@ -35,8 +35,9 @@
 
 	<fields>
 		<field name="title" item="partners" type="text" group="general" length="70" required="1" multilingual="1" adminonly="1">Title</field>
+		<field name="category" item="partners" type="combo" group="general" values="local||Local,foreign||Foreign" required="1" adminonly="1">Category</field>
 		<field name="description" item="partners" type="textarea" group="general" editor="1" required="1" multilingual="1" adminonly="1">Description</field>
-		<field name="pictures" item="partners" type="pictures" group="general" length="5" thumb_width="400" thumb_height="300" width="1200" height="900" prefix="partners_" editable="0">Pictures</field>
+		<field name="pictures" item="partners" type="pictures" group="general" length="5" thumb_width="400" thumb_height="300" width="800" height="600" prefix="partners_" editable="0">Pictures</field>
 	</fields>
 
 	<phrases>
@@ -47,7 +48,7 @@
 	</phrases>
 
 	<blocks>
-		<block title="Partners" name="partners" collapsible="1" position="bottom" type="smarty" filename="block.partners"><![CDATA[]]></block>
+		<block title="Partners" name="partners" collapsible="1" position="left" type="smarty" filename="block.partners"><![CDATA[]]></block>
 	</blocks>
 
 	<hooks>
