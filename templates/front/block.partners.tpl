@@ -4,7 +4,7 @@
 			<div class="media ia-item ia-item--border-bottom">
 				{if !empty($entry.pictures)}
 					<span class="pull-left">
-						{ia_image file=$entry.pictures[0] width=50 title=$entry.title class='media-object'}
+						{ia_image file=$entry.pictures[0] width=50 type='thumbnail' title=$entry.title class='media-object'}
 					</span>
 				{/if}
 				<div class="media-body">

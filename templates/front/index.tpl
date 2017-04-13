@@ -13,7 +13,7 @@
 			<div class="col-md-3 js-partner{if !empty($item.category)} {$item.category}{/if}">
 				<div class="item">
 					{if !empty($item.pictures)}
-						{ia_image file=$item.pictures[0] title=$item.title class='img-responsive'}</a>
+						{ia_image file=$item.pictures[0] title=$item.title type='thumbnail' class='img-responsive'}</a>
 					{/if}
 					<h4>{$item.title|escape:'html'}</h4>
 				</div>
@@ -32,27 +32,22 @@ var $grid = $('.js-partners').isotope({
 var filterFns = {
   numberGreaterThan50: function() {
     var number = $(this).find('.number').text();
+
     return parseInt( number, 10 ) > 50;
   },
   ium: function() {
     var name = $(this).find('.name').text();
+
     return name.match( /ium$/ );
   }
 };
 
 $('.filters-button-group').on( 'click', 'button', function() {
   var filterValue = $( this ).attr('data-filter');
-  // use filterFn if matches value
-  filterValue = filterFns[ filterValue ] || filterValue;
-  $grid.isotope({ filter: filterValue });
-});
 
-$('.button-group').each( function( i, buttonGroup ) {
-  var $buttonGroup = $( buttonGroup );
-  $buttonGroup.on( 'click', 'button', function() {
-    $buttonGroup.find('.is-checked').removeClass('is-checked');
-    $( this ).addClass('is-checked');
-  });
+  filterValue = filterFns[ filterValue ] || filterValue;
+
+  $grid.isotope({ filter: filterValue });
 });
 	{/ia_add_js}
 {else}
