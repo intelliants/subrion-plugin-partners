@@ -26,8 +26,8 @@
 
 if (iaView::REQUEST_HTML == $iaView->getRequestType())
 {
-	$iaPartner = $iaCore->factoryModule('partner', 'partners');
+    $iaPartner = $iaCore->factoryModule('partner', 'partners');
 
-	$partners = $iaPartner->get('', 0, 10);
-	$iaView->assign('blockPartners', $partners);
+    $partners = $iaPartner->get('', 0, 10);
+    $iaView->assign('blockPartners', $partners);
 }

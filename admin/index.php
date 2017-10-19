@@ -26,23 +26,23 @@
 
 class iaBackendController extends iaAbstractControllerModuleBackend
 {
-	protected $_name = 'partners';
-	protected $_path = 'partners';
-	protected $_itemName = 'partners';
+    protected $_name = 'partners';
+    protected $_path = 'partners';
+    protected $_itemName = 'partners';
 
-	protected $_helperName = 'partner';
+    protected $_helperName = 'partner';
 
-	protected $_gridColumns = ['title', 'date_added', 'date_modified', 'status'];
-	protected $_gridFilters = ['title' => self::LIKE, 'status' => self::EQUAL];
+    protected $_gridColumns = ['title', 'date_added', 'date_modified', 'status'];
+    protected $_gridFilters = ['title' => self::LIKE, 'status' => self::EQUAL];
 
-	protected $_activityLog = ['item' => 'partner'];
+    protected $_activityLog = ['item' => 'partner'];
 
 
-	protected function _setDefaultValues(array &$entry)
-	{
-		$entry = [
-			'featured' => false,
-			'status' => iaCore::STATUS_ACTIVE,
-		];
-	}
+    protected function _setDefaultValues(array &$entry)
+    {
+        $entry = [
+            'featured' => false,
+            'status' => iaCore::STATUS_ACTIVE,
+        ];
+    }
 }

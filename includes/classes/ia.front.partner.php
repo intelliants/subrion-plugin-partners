@@ -26,28 +26,29 @@
 
 class iaPartner extends abstractModuleFront
 {
-	protected static $_table = 'partners';
+    protected static $_table = 'partners';
 
-	protected $_itemName = 'partners';
+    protected $_itemName = 'partners';
 
-	public $coreSearchEnabled = true;
-	public $coreSearchOptions = [
-		'tableAlias' => 'p',
-		'regularSearchFields' => ['title', 'description'],
-	];
+    protected $_moduleName = 'partners';
+
+    public $coreSearchEnabled = true;
+    public $coreSearchOptions = [
+        'regularSearchFields' => ['title', 'description'],
+    ];
 
 
-	public function get($where, $start = null, $limit = null)
-	{
-		$sql = 'SELECT SQL_CALC_FOUND_ROWS p.* '
-			. 'FROM `' . self::getTable(true) . '`  p '
-			. 'WHERE ' . ($where ? $where . ' AND' : '') . "  p.`status` = 'active' "
-			. 'ORDER BY p.`date_modified` DESC '
-			. ($start || $limit ? "LIMIT $start, $limit" : '');
+    public function get($where, $start = null, $limit = null)
+    {
+        $sql = 'SELECT SQL_CALC_FOUND_ROWS p.* '
+            . 'FROM `' . self::getTable(true) . '`  p '
+            . 'WHERE ' . ($where ? $where . ' AND' : '') . "  p.`status` = 'active' "
+            . 'ORDER BY p.`date_modified` DESC '
+            . ($start || $limit ? "LIMIT $start, $limit" : '');
 
-		$rows = $this->iaDb->getAll($sql);
-		$this->_processValues($rows);
+        $rows = $this->iaDb->getAll($sql);
+        $this->_processValues($rows);
 
-		return $rows;
-	}
+        return $rows;
+    }
 }

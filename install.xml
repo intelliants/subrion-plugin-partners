@@ -1,86 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <module type="plugin" name="partners">
-	<title>Partners</title>
-	<summary>Easy way to create and handle partners</summary>
-	<author>Intelliants LLC</author>
-	<contributor>Intelliants LLC</contributor>
-	<version>1.0.1</version>
-	<date>2017-02-14</date>
-	<compatibility>4.1.0</compatibility>
+    <title>Partners</title>
+    <summary>Easy way to create and handle partners</summary>
+    <author>Intelliants LLC</author>
+    <contributor>Intelliants LLC</contributor>
+    <version>1.0.1</version>
+    <date>2017-02-14</date>
+    <compatibility>4.1.0</compatibility>
 
-	<screenshots>
-		<screenshot type="preview" name="preview.jpg">View Listing page</screenshot>
-	</screenshots>
+    <screenshots>
+        <screenshot type="preview" name="preview.jpg">View Listing page</screenshot>
+    </screenshots>
 
-	<items>
-		<item>partners</item>
-	</items>
+    <items>
+        <item>partners</item>
+    </items>
 
-	<actions>
-		<action name="partners" url="partners/partners/" icon="list" pages="partners:add,partners:edit"><![CDATA[]]></action>
-		<action name="add_partner" url="partners/partners/add/" icon="plus" pages="partners:read,partners:edit"><![CDATA[]]></action>
-	</actions>
+    <actions>
+        <action name="partners" url="partners/partners/" icon="list" pages="partners:add,partners:edit"><![CDATA[]]></action>
+        <action name="add_partner" url="partners/partners/add/" icon="plus" pages="partners:read,partners:edit"><![CDATA[]]></action>
+    </actions>
 
-	<adminpages>
-		<page group="content" name="partners" url="partners/partners/" menus="menu">Partners</page>
-	</adminpages>
+    <adminpages>
+        <page group="content" name="partners" url="partners/partners/" menus="menu">Partners</page>
+    </adminpages>
 
-	<pages>
-		<page url="partners/" name="partners" menus="main">Partners</page>
-	</pages>
+    <pages>
+        <page url="partners/" name="partners" menus="main">Partners</page>
+    </pages>
 
-	<fields_groups>
-		<group item="partners" name="general" title="General"><![CDATA[]]></group>
-	</fields_groups>
+    <fields_groups>
+        <group item="partners" name="general" title="General"><![CDATA[]]></group>
+    </fields_groups>
 
-	<fields>
-		<field name="title" item="partners" type="text" group="general" length="70" required="1" multilingual="1" adminonly="1">Title</field>
-		<field name="category" item="partners" type="combo" group="general" values="local||Local,foreign||Foreign" required="1" adminonly="1">Category</field>
-		<field name="description" item="partners" type="textarea" group="general" editor="1" required="1" multilingual="1" adminonly="1">Description</field>
-		<field name="pictures" item="partners" type="pictures" group="general" length="5" thumb_width="400" thumb_height="300" width="800" height="600" prefix="partners_" editable="0">Pictures</field>
-	</fields>
+    <fields>
+        <field name="title" item="partners" type="text" group="general" length="70" required="1" multilingual="1" adminonly="1">Title</field>
+        <field name="category" item="partners" type="combo" group="general" values="local||Local,foreign||Foreign" required="1" adminonly="1">Category</field>
+        <field name="description" item="partners" type="textarea" group="general" editor="1" required="1" multilingual="1" adminonly="1">Description</field>
+        <field name="pictures" item="partners" type="pictures" group="general" length="5" thumb_width="400" thumb_height="300" width="800" height="600" prefix="partners_" editable="0">Pictures</field>
+    </fields>
 
-	<phrases>
-		<phrase category="admin" key="add_partner">Add Partner</phrase>
+    <phrases>
+        <phrase category="admin" key="add_partner">Add Partner</phrase>
 
-		<phrase category="common" key="partners">Partners</phrase>
-		<phrase category="common" key="no_partners">No partners.</phrase>
-	</phrases>
+        <phrase category="common" key="partners">Partners</phrase>
+        <phrase category="common" key="no_partners">No partners.</phrase>
+    </phrases>
 
-	<blocks>
-		<block title="Partners" name="partners" collapsible="1" position="left" type="smarty" filename="block.partners"><![CDATA[]]></block>
-	</blocks>
+    <blocks>
+        <block title="Partners" name="partners" collapsible="1" position="left" type="smarty" filename="block.partners"><![CDATA[]]></block>
+    </blocks>
 
-	<hooks>
-		<hook name="phpCoreBeforePageDisplay" filename="hook.blocks-load" page_type="front"><![CDATA[]]></hook>
-	</hooks>
+    <hooks>
+        <hook name="phpCoreBeforePageDisplay" filename="hook.blocks-load" page_type="front"><![CDATA[]]></hook>
+    </hooks>
 
-	<install>
-		<sql>
-			<![CDATA[
+    <install>
+        <sql>
+            <![CDATA[
 CREATE TABLE IF NOT EXISTS `{prefix}partners`(
-	`id` int(8) unsigned NOT NULL auto_increment,
-	`date_added` date,
-	`date_modified` date,
-	`status` enum('active', 'inactive') NOT NULL default 'inactive',
-	`order` mediumint(8) NOT NULL default 0,
-	`views_num` mediumint(8) unsigned NOT NULL default 0,
-	`featured` tinyint(1) unsigned NOT NULL default 0,
-	`featured_start` datetime NULL,
-	`featured_end` datetime NULL,
-	PRIMARY KEY (`id`),
-	KEY `STATUS` (`status`),
-	KEY `ORDER` (`order`)
+    `id` int(8) unsigned NOT NULL auto_increment,
+    `date_added` date,
+    `date_modified` date,
+    `status` enum('active', 'inactive') NOT NULL default 'inactive',
+    `order` mediumint(8) NOT NULL default 0,
+    `views_num` mediumint(8) unsigned NOT NULL default 0,
+    `featured` tinyint(1) unsigned NOT NULL default 0,
+    `featured_start` datetime NULL,
+    `featured_end` datetime NULL,
+    PRIMARY KEY (`id`),
+    KEY `STATUS` (`status`),
+    KEY `ORDER` (`order`)
 ) {mysql_version};
-			]]>
-		</sql>
-	</install>
+            ]]>
+        </sql>
+    </install>
 
-	<uninstall>
-		<sql>
-			<![CDATA[
+    <uninstall>
+        <sql>
+            <![CDATA[
 DROP TABLE IF EXISTS `{prefix}partners`;
-			]]>
-		</sql>
-	</uninstall>
+            ]]>
+        </sql>
+    </uninstall>
 </module>
