@@ -29,7 +29,7 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
     $iaPartner = $iaCore->factoryModule('partner', IA_CURRENT_MODULE);
 
     $partners = $iaPartner->get('');
-    $categories = $iaDb->one('`values`', "`name` = 'category' AND `item` = 'partners'", iaField::getTable());
+    $categories = $iaDb->one('`values`', "`name` = 'category' AND `item` = 'partner'", iaField::getTable());
 
     $iaView->assign('categories', explode(',', $categories));
     $iaView->assign('partners', $partners);
