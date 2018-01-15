@@ -45,4 +45,19 @@ class iaBackendController extends iaAbstractControllerModuleBackend
             'status' => iaCore::STATUS_ACTIVE,
         ];
     }
+
+    protected function _entryAdd(array $entryData)
+    {
+        $entryData['date_added'] = date(iaDb::DATETIME_FORMAT);
+        $entryData['date_modified'] = date(iaDb::DATETIME_FORMAT);
+
+        return parent::_entryAdd($entryData);
+    }
+
+    protected function _entryUpdate(array $entryData, $entryId)
+    {
+        $entryData['date_modified'] = date(iaDb::DATETIME_FORMAT);
+
+        return parent::_entryUpdate($entryData, $entryId);
+    }
 }
