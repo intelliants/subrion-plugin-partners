@@ -10,7 +10,7 @@
 
     <div class="row partners js-partners">
         {foreach $partners as $item}
-            <div class="col-md-3 js-partner{if !empty($item.category)} {$item.category}{/if}">
+            <div class="col-md-3 js-partner m-b{if !empty($item.category)} {$item.category}{/if}">
                 <div class="item">
                     {if !empty($item.pictures)}
                         {ia_image file=$item.pictures[0] title=$item.title type='thumbnail' class='img-responsive'}</a>
