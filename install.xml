@@ -4,16 +4,16 @@
     <summary>Easy way to create and handle partners</summary>
     <author>Intelliants LLC</author>
     <contributor>Intelliants LLC</contributor>
-    <version>1.0.1</version>
-    <date>2017-02-14</date>
-    <compatibility>4.1.0</compatibility>
+    <version>1.1.0</version>
+    <date>2019-04-16</date>
+    <compatibility>4.2.0</compatibility>
 
     <screenshots>
         <screenshot type="preview" name="preview.jpg">View Listing page</screenshot>
     </screenshots>
 
     <items>
-        <item>partners</item>
+        <item table_name="partners" pages="partners">partner</item>
     </items>
 
     <actions>
@@ -30,14 +30,14 @@
     </pages>
 
     <fields_groups>
-        <group item="partners" name="general" title="General"><![CDATA[]]></group>
+        <group item="partner" name="general" title="General"><![CDATA[]]></group>
     </fields_groups>
 
     <fields>
-        <field name="title" item="partners" type="text" group="general" length="70" required="1" multilingual="1" adminonly="1">Title</field>
-        <field name="category" item="partners" type="combo" group="general" values="local||Local,foreign||Foreign" required="1" adminonly="1">Category</field>
-        <field name="description" item="partners" type="textarea" group="general" editor="1" required="1" multilingual="1" adminonly="1">Description</field>
-        <field name="pictures" item="partners" type="pictures" group="general" length="5" thumb_width="400" thumb_height="300" width="800" height="600" prefix="partners_" editable="0">Pictures</field>
+        <field name="title" item="partner" type="text" group="general" length="70" required="1" multilingual="1" adminonly="1">Title</field>
+        <field name="category" item="partner" type="combo" group="general" values="local||Local,foreign||Foreign" required="1" adminonly="1">Category</field>
+        <field name="description" item="partner" type="textarea" group="general" editor="1" required="1" multilingual="1" adminonly="1">Description</field>
+        <field name="pictures" item="partner" type="pictures" group="general" length="5" thumb_width="400" thumb_height="300" width="800" height="600" prefix="partners_" editable="0">Pictures</field>
     </fields>
 
     <phrases>
@@ -48,11 +48,11 @@
     </phrases>
 
     <blocks>
-        <block title="Partners" name="partners" collapsible="1" position="left" type="smarty" filename="block.partners"><![CDATA[]]></block>
+        <block title="Partners" name="partners" collapsible="1" position="left" type="smarty" filename="block.partners.tpl"><![CDATA[]]></block>
     </blocks>
 
     <hooks>
-        <hook name="phpCoreBeforePageDisplay" filename="hook.blocks-load" page_type="front"><![CDATA[]]></hook>
+        <hook name="phpCoreBeforePageDisplay" filename="hook.blocks-load.php" page_type="front"><![CDATA[]]></hook>
     </hooks>
 
     <install>

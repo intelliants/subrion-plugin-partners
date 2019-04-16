@@ -27,7 +27,7 @@
 class iaPartner extends abstractModuleAdmin
 {
     protected static $_table = 'partners';
-    protected $_itemName = 'partners';
+    protected $_itemName = 'partner';
 
     protected $_activityLog = ['item' => 'partner'];
 

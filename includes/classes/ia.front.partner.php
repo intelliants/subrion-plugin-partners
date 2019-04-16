@@ -28,7 +28,7 @@ class iaPartner extends abstractModuleFront
 {
     protected static $_table = 'partners';
 
-    protected $_itemName = 'partners';
+    protected $_itemName = 'partner';
 
     protected $_moduleName = 'partners';
 

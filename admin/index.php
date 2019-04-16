@@ -28,7 +28,7 @@ class iaBackendController extends iaAbstractControllerModuleBackend
 {
     protected $_name = 'partners';
     protected $_path = 'partners';
-    protected $_itemName = 'partners';
+    protected $_itemName = 'partner';
 
     protected $_helperName = 'partner';
 
